@@ -1,0 +1,46 @@
+#N canvas 839 160 523 478 10;
+#X declare -path blib;
+#X obj 236 -337 hsl 160 15 1 0.1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 236 -282 hsl 160 15 0 500 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 236 -227 hsl 160 15 0 3000 0 0 release empty empty -2 -8 0 10
+-262144 -1 -1 0 1;
+#X text 232 -211 RELEASE;
+#X text 232 -266 ATTACK;
+#X text 232 -321 RATIO;
+#X floatatom 406 -322 5 0 0 0 - - -;
+#X floatatom 406 -267 5 0 0 0 - - -;
+#X floatatom 406 -212 5 0 0 0 - - -;
+#X text 440 -263 ms;
+#X text 440 -208 ms;
+#X text 439 -318 in/out;
+#X floatatom 408 -162 5 0 0 0 - - -;
+#X obj 236 -177 hsl 160 15 -100 12 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 0 1;
+#X text 231 -159 THRESHOLD;
+#X text 442 -158 db;
+#X obj 3 -15 dac~;
+#X msg 182 -104 threshold \$1;
+#X msg 135 -171 release \$1;
+#X msg 123 -240 attack \$1;
+#X msg 99 -289 ratio \$1;
+#X obj 7 -151 noise~;
+#X obj 6 -83 blib/compressor~;
+#X obj -6 -388 declare -path blib;
+#X connect 0 0 6 0;
+#X connect 0 0 20 0;
+#X connect 1 0 7 0;
+#X connect 1 0 19 0;
+#X connect 2 0 8 0;
+#X connect 2 0 18 0;
+#X connect 13 0 12 0;
+#X connect 13 0 17 0;
+#X connect 17 0 22 1;
+#X connect 18 0 22 1;
+#X connect 19 0 22 1;
+#X connect 20 0 22 1;
+#X connect 21 0 22 0;
+#X connect 22 0 16 0;
+#X connect 22 0 16 1;
+#X coords 0 478 1 477 85 60 0;
